@@ -1,0 +1,22 @@
+# Created by venv; see https://docs.python.org/3/library/venv.html
+# Backend
+# Python venv
+venv/
+# Python cache files
+__pycache__/
+*.pyc
+*.pyo
+# Environment variables / API keys
+.env
+# Frontend (React + Tailwind)
+# Node dependencies
+node_modules/
+# Build / production files
+build/
+# Optional: logs or temp files
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*
+.DS_Store
+Thumbs.db
+.vscode
