@@ -15,16 +15,22 @@ app.add_middleware(
 )
 
 Ign = 'Spauw'
-Tagline = 'SRY'
+Tag = 'SRY'
 
+
+# sent request to riot api to send me puuid for given player name and tag
 def get_PUUID(Ign=None, Tag=None):
     Link = f'https://europe.api.riotgames.com/riot/account/v1/accounts/by-riot-id/{Ign}/{Tag}?api_key={API_KEY}'
     response = requests.get(Link)
     return response.json()['puuid']
 
+# send to fastapi and make own adress
 @app.get("/puuid/{Ign}/{Tag}")
 def PUUID(Ign: str, Tag: str):
     return {"puuid": get_PUUID(Ign, Tag)}
+
+# save puuid to a variable
+player_puuid = get_PUUID(Ign, Tag)
 
 
 @app.get("/hello")

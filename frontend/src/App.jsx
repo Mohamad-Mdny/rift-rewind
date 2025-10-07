@@ -1,18 +1,21 @@
-import { useEffect, useState } from "react";
+import { useId } from "react";
+
+export function Form() {
+  const ageInputId = useId();
+  return (
+    <>
+        <input name="Riot Username" placeholder="Riot Username" className="border rounded text-stone-950 px-4 py-1"/>
+      <hr />
+      <input id={ageInputId} name="Riot Tag" placeholder="Tag" className="border rounded text-stone-950 text-center px-5 py-2"/>
+    </>
+  );
+
+}
 
 function App() {
-  const [msg, setMsg] = useState("Loading...");
-
-  useEffect(() => {
-    fetch("http://127.0.0.1:8000/hello")
-      .then((res) => res.json())
-      .then((data) => setMsg(data.message))
-      .catch((err) => setMsg("Error: " + err));
-  }, []);
-
   return (
     <div className="flex h-screen items-center justify-center bg-gray-900 text-white">
-      <h1 className="text-4xl font-bold">{msg}</h1>
+      <Form />
     </div>
   );
 }
